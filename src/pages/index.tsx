@@ -2,15 +2,22 @@ import { Button } from '@geist-ui/react'
 import { motion } from 'framer-motion'
 import Tilt from 'react-parallax-tilt'
 import useSWR from 'swr'
+import { useState } from 'react'
 import SpaceAnimation from '../components/SpaceAnimation'
 import Loader from '../components/Loader'
+import BuyModal from '../components/BuyModal'
 
 export default function App() {
     const { data: tokens } = useSWR('/api/tokens')
+    const { data: price } = useSWR('/api/tokens/price')
+    const [buy, setBuy] = useState(null)
 
     return (
         <>
             <Loader />
+
+            <BuyModal visible={!!buy} hide={() => setBuy(false)} token={buy} />
+
             <div className="bg-black text-white">
                 <SpaceAnimation id="random" />
 
@@ -34,14 +41,14 @@ export default function App() {
                                         </div>
                                         <div className="bg-white bg-opacity-10 px-4 py-2 flex items-center">
                                             <div className="flex-1 space-x-1">
-                                                <Button auto size="mini">
+                                                <Button auto size="mini" onClick={() => setBuy(token._id)}>
                                                     Claim
                                                 </Button>
                                                 <Button auto size="mini" type="secondary">
                                                     Info
                                                 </Button>
                                             </div>
-                                            <div>10.00 FTM</div>
+                                            <div>{price?.price || '??'} FTM</div>
                                         </div>
                                     </Tilt>
                                 ))}

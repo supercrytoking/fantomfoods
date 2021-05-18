@@ -12,6 +12,7 @@ const TokenMetadataSchema = new mongoose.Schema(
     },
     { toObject: { virtuals: true }, toJSON: { virtuals: true } }
 )
+
 const TokenMetadata = mongoose.models.TokenMetadata || mongoose.model<any>('TokenMetadata', TokenMetadataSchema)
 
 export default TokenMetadata

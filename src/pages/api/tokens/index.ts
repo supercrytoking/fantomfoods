@@ -1,4 +1,4 @@
-import database from '../../../lib/models/db'
+import database from '../../../lib/db'
 import TokenMetadata from '../../../lib/models/TokenMetadata'
 
 export default async function (req, res) {
