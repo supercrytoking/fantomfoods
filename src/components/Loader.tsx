@@ -5,7 +5,7 @@ import SpaceAnimation from './SpaceAnimation'
 export default function Loader() {
     const [hide, setHide] = useState(false)
 
-    useEffect(() => setInterval(() => setHide(true), 1), [])
+    useEffect(() => setInterval(() => setHide(true), 4000), [])
 
     return (
         <>

@@ -54,6 +54,10 @@ export default function App() {
                                 ))}
                             </div>
                         )}
+
+                        <div>
+                            <p className="text-center">0xEd22151F71A9790f2Ddfa8ACd5D0A86711879908</p>
+                        </div>
                     </div>
                 </motion.div>
             </div>
