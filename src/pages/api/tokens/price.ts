@@ -1,5 +1,5 @@
 import database from '../../../lib/db'
-import Transaction from '../../../lib/models/Transactions'
+import Transaction from '../../../lib/models/Transaction'
 
 export default async function (req, res) {
     try {

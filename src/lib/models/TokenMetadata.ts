@@ -5,6 +5,7 @@ const TokenMetadataSchema = new mongoose.Schema(
         title: String,
         description: String,
         image: String,
+        owner: String,
         date_created: {
             type: Date,
             default: Date.now()

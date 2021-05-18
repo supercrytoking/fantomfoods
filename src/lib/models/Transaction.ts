@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const TransactionSchema = new mongoose.Schema(
     {
         reciept: Object,
+        token: '',
         date_created: {
             type: Date,
             default: Date.now()

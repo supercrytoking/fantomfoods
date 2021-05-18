@@ -10,6 +10,7 @@ import BuyModal from '../components/BuyModal'
 export default function App() {
     const { data: tokens } = useSWR('/api/tokens')
     const { data: price } = useSWR('/api/tokens/price')
+
     const [buy, setBuy] = useState(null)
 
     return (
@@ -42,10 +43,7 @@ export default function App() {
                                         <div className="bg-white bg-opacity-10 px-4 py-2 flex items-center">
                                             <div className="flex-1 space-x-1">
                                                 <Button auto size="mini" onClick={() => setBuy(token._id)}>
-                                                    Claim
-                                                </Button>
-                                                <Button auto size="mini" type="secondary">
-                                                    Info
+                                                    {token.owner ? 'Claimed' : 'Claim'}
                                                 </Button>
                                             </div>
                                             <div>{price?.price || '??'} FTM</div>
