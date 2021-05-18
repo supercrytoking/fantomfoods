@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import randomColor from 'randomcolor'
+import shortid from 'shortid'
 
-export default function BackgroundAnimation() {
+export default function BackgroundAnimation({ id }) {
     useEffect(() => {
-        const canvas = document.getElementById('canvas')
+        const canvas = document.getElementById(id)
         const flr = Math.floor
 
         canvas.width = canvas.offsetWidth
@@ -128,7 +129,7 @@ export default function BackgroundAnimation() {
 
     return (
         <>
-            <canvas id="canvas" className="z-0 w-full h-full fixed inset-0 pointer-events-none" />
+            <canvas id={id} className="z-0 w-full h-full fixed inset-0 pointer-events-none" />
         </>
     )
 }
